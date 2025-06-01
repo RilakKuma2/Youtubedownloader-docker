@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 YouTube 다운로더</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Flask에서 전달된 값을 JavaScript 변수로 설정 -->
+    <script>
+        const preLoadYouTubeUrl = {{ pre_load_youtube_url | tojson | safe }};
+        const autoFetchOnLoad = {{ auto_fetch_on_load | tojson | safe }};
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube 다운로더</h1>
+
+        <div class="form-group">
+            <label for="urlEntry">YouTube URL:</label>
+            <div class="url-input-group">
+                <input type="text" id="urlEntry" placeholder="여기에 YouTube URL을 입력하세요">
+                <button id="fetchButton">정보 가져오기</button>
+            </div>
+        </div>
+
+        <!-- ... (나머지 HTML 구조는 이전과 동일) ... -->
+        <div id="infoSection" class="info-section hidden">
+            <div class="thumbnail-container">
+                <img id="thumbnailImage" src="#" alt="썸네일">
+            </div>
+            <div class="video-details">
+                <h2 id="titleText">제목</h2>
+                <div class="options-grid">
+                    <div class="form-group">
+                        <label for="videoFormatSelect">영상 포맷:</label>
+                        <select id="videoFormatSelect">
+                            <option value="">-- 선택 --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="audioFormatSelect">음성 포맷:</label>
+                        <select id="audioFormatSelect">
+                            <option value="">-- 선택 --</option>
+                        </select>
+                    </div>
+                </div>
+                 <div class="form-group checkbox-group">
+                    <input type="checkbox" id="useThumbnailAsCover">
+                    <label for="useThumbnailAsCover">썸네일을 앨범 커버로 사용 (음성만 다운로드 시)</label>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="autoDownloadCheckbox" checked>
+                    <label for="autoDownloadCheckbox">완료 시 자동 다운로드</label>
+                </div>
+            </div>
+        </div>
+        
+        <div id="playlistSection" class="playlist-section hidden">
+            <h3>플레이리스트 항목</h3>
+            <div class="button-group">
+                <button id="selectAllPlaylist">전체 선택</button>
+                <button id="deselectAllPlaylist">전체 해제</button>
+            </div>
+            <div id="playlistItemsContainer">
+                <!-- Playlist items will be populated here by JS -->
+            </div>
+        </div>
+
+        <div class="form-group button-group">
+            <button id="downloadButton" disabled>다운로드</button>
+            <button id="audioOnlyButton" disabled>음성만 다운로드</button>
+            <button id="resetButton">리셋</button>
+        </div>
+
+        <div id="progressSection" class="progress-section hidden">
+            <div id="progressBar"><div id="progressBarFill"></div></div>
+            <p id="statusMessage"></p>
+        </div>
+        
+        <div class="form-group">
+            <label for="logMessagesContainer">로그:</label>
+            <div id="logMessagesContainer">
+                <div id="logMessages">
+                    <!-- Log messages will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="downloadedFilesSection" class="form-group">
+            <div id="downloadedFilesList">
+                <!-- Downloaded file links will appear here (수동 다운로드용) -->
+            </div>
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

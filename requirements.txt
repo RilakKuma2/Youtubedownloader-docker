@@ -1,0 +1,10 @@
+Flask
+yt-dlp
+requests
+mutagen
+Pillow
+APScheduler
+celery
+redis
+eventlet
+gunicorn # 프로덕션용 WSGI 서버 (선택적이지만 권장)

@@ -1,0 +1,327 @@
+/* static/style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F5F5F5;
+    color: #212529;
+    margin: 0;
+    padding: 10px; /* 모바일에서는 패딩을 약간 줄일 수 있음 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* 모든 요소에 box-sizing 적용 */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit; /* box-sizing 상속 */
+}
+
+
+.container {
+    background-color: #FFFFFF;
+    padding: 15px; /* 모바일에서는 패딩을 약간 줄일 수 있음 */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%; /* 기본 너비를 100%로 설정 */
+    max-width: 900px; /* 데스크톱 최대 너비는 유지 */
+    /* margin-top: 20px; 제거 또는 body padding으로 대체 */
+}
+
+h1 {
+    color: #0078D7;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem; /* 기본 폰트 크기 약간 조정 */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #495057;
+}
+
+input[type="text"],
+select {
+    width: 100%; /* 항상 부모 요소 너비에 맞춤 */
+    padding: 10px;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    font-size: 1rem;
+    /* box-sizing: border-box; body에서 상속받도록 변경 */
+}
+input[type="text"]:focus,
+select:focus {
+    border-color: #0078D7;
+    box-shadow: 0 0 0 0.2rem rgba(0, 120, 215, 0.25);
+    outline: none;
+}
+
+
+button, .button {
+    background-color: #0078D7;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem; /* 모바일 고려하여 약간 작게 */
+    transition: background-color 0.2s ease-in-out;
+    margin-right: 5px; /* 오른쪽 마진 일관성 */
+    margin-bottom: 5px; /* 여러 버튼이 줄바꿈될 때 간격 */
+    text-decoration: none;
+    display: inline-block;
+    width: auto; /* 기본 너비 자동 */
+}
+.button-group button { /* 버튼 그룹 내 버튼 너비 조정 가능 */
+    /* flex-grow: 1; */ /* 필요시 버튼이 공간을 채우도록 */
+}
+
+
+button:hover, .button:hover {
+    background-color: #0056b3;
+}
+button:disabled {
+    background-color: #A0A0A0;
+    cursor: not-allowed;
+}
+
+
+.url-input-group {
+    display: flex;
+    flex-direction: column; /* 모바일에서는 세로로 쌓음 */
+    align-items: stretch; /* 내부 요소 너비 100% */
+}
+
+.url-input-group input[type="text"] {
+    flex-grow: 1;
+    margin-right: 0; /* 세로 정렬 시 오른쪽 마진 제거 */
+    margin-bottom: 10px; /* 버튼과의 간격 */
+}
+.url-input-group button {
+    width: 100%; /* 모바일에서 버튼 너비 꽉 채움 */
+    margin-right: 0;
+}
+
+
+.info-section {
+    display: flex;
+    flex-direction: column; /* 모바일에서는 세로로 쌓음 */
+    margin-top: 20px;
+    gap: 15px; /* 간격 약간 줄임 */
+    align-items: center; /* 모바일에서 중앙 정렬 */
+}
+
+.thumbnail-container {
+    flex-shrink: 0;
+    width: 100%; /* 썸네일 컨테이너 너비 */
+    max-width: 250px; /* 모바일 썸네일 최대 크기 */
+    text-align: center; /* 내부 이미지 중앙 정렬 */
+}
+
+.thumbnail-container img {
+    max-width: 100%; /* 부모 너비에 맞춤 */
+    height: auto; /* 비율 유지 */
+    border-radius: 4px;
+    border: 1px solid #DDD;
+}
+
+.video-details {
+    flex-grow: 1;
+    width: 100%; /* 너비 100% */
+}
+
+.video-details h2 {
+    margin-top: 0;
+    font-size: 1.2rem; /* 모바일 제목 폰트 크기 */
+    color: #343A40;
+    word-break: break-all; /* 긴 제목 줄바꿈 */
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 모바일에서는 한 열로 */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.playlist-section {
+    margin-top: 20px;
+    max-height: 250px; /* 모바일에서 높이 약간 줄임 */
+    overflow-y: auto;
+    border: 1px solid #CED4DA;
+    padding: 10px;
+    border-radius: 4px;
+}
+.playlist-section h3 {
+    margin-top:0;
+    font-size: 1.1rem;
+}
+.playlist-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0; /* 패딩 조정 */
+    border-bottom: 1px solid #EEE;
+    font-size: 0.9rem; /* 플레이리스트 항목 폰트 크기 */
+}
+.playlist-item:last-child {
+    border-bottom: none;
+}
+.playlist-item input[type="checkbox"] {
+    margin-right: 10px;
+    min-width: 18px; /* 체크박스 최소 너비 (터치 용이성) */
+    min-height: 18px;
+}
+.playlist-item label {
+    font-weight: normal;
+    word-break: break-word; /* 긴 제목 줄바꿈 */
+}
+
+
+.progress-section {
+    margin-top: 20px;
+}
+
+#progressBar {
+    width: 100%;
+    height: 20px;
+    background-color: #E0E0E0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+#progressBarFill {
+    width: 0%;
+    height: 100%;
+    background-color: #0078D7;
+    transition: width 0.3s ease;
+}
+
+#statusMessage, #logMessagesContainer #logMessages, #downloadedFilesList { /* #logMessagesContainer 추가 */
+    font-size: 0.85rem; /* 모바일 로그 폰트 크기 */
+    color: #495057;
+    margin-top: 5px;
+}
+
+#logMessagesContainer { /* 로그 메시지 스크롤을 위한 컨테이너 */
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 10px;
+    width: 100%;
+}
+#logMessages { /* 실제 로그가 담기는 div */
+    white-space: pre-wrap; /* 줄바꿈 유지 */
+    padding: 0; /* 컨테이너에서 패딩 관리 */
+    background-color: transparent; /* 배경색 제거 */
+}
+
+
+.hidden {
+    display: none;
+}
+
+.checkbox-group label {
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: normal;
+    font-size: 0.9rem; /* 체크박스 레이블 폰트 */
+}
+.checkbox-group input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+.button-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap; /* 버튼 많을 시 줄바꿈 */
+    gap: 5px; /* 버튼 사이 간격 */
+}
+/* .button-group button: 제거, button 기본 스타일에 margin-bottom 추가됨 */
+
+
+#downloadedFilesList h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #0078D7;
+}
+#downloadedFilesList p {
+    margin: 5px 0;
+}
+.download-link {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 100%; /* 모바일에서 다운로드 링크 버튼 꽉 채움 */
+    text-align: center;
+}
+
+
+/* --- 미디어 쿼리 --- */
+
+/* 데스크톱 및 넓은 태블릿 (예: 769px 이상) */
+@media (min-width: 769px) {
+    body {
+        padding: 20px; /* 데스크톱에서는 기존 패딩 */
+    }
+    .container {
+        padding: 20px; /* 데스크톱에서는 기존 패딩 */
+    }
+    h1 {
+        font-size: 2rem; /* 데스크톱 제목 폰트 크기 */
+    }
+    .url-input-group {
+        flex-direction: row; /* 데스크톱에서는 가로로 배열 */
+        align-items: center;
+    }
+    .url-input-group input[type="text"] {
+        margin-right: 10px; /* 버튼과의 간격 복원 */
+        margin-bottom: 0; /* 세로 간격 제거 */
+    }
+    .url-input-group button {
+        width: auto; /* 데스크톱에서 버튼 너비 자동 */
+    }
+
+    .info-section {
+        flex-direction: row; /* 데스크톱에서는 가로로 배열 */
+        align-items: flex-start; /* 위쪽 정렬 */
+        gap: 20px;
+    }
+    .thumbnail-container {
+        width: auto; /* 너비 자동 */
+        max-width: 200px; /* 데스크톱 썸네일 크기 */
+    }
+    .video-details h2 {
+        font-size: 1.4rem; /* 데스크톱 제목 폰트 크기 */
+    }
+
+    .options-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 데스크톱에서는 여러 열 */
+    }
+    .playlist-section {
+        max-height: 300px; /* 데스크톱 높이 복원 */
+    }
+    .playlist-item {
+        font-size: 1rem;
+    }
+    #statusMessage, #logMessagesContainer #logMessages, #downloadedFilesList {
+        font-size: 0.9rem; /* 데스크톱 로그 폰트 크기 */
+    }
+    .checkbox-group label {
+        font-size: 1rem;
+    }
+    .button {
+        font-size: 1rem;
+    }
+    .download-link {
+        width: auto; /* 데스크톱에서 다운로드 링크 너비 자동 */
+    }
+}

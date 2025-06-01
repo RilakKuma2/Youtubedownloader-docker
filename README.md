@@ -8,7 +8,9 @@
 
 
 예시 docker-compose
+
 '''
+
 version: '3.8'
 
 services:
@@ -69,7 +71,8 @@ volumes:
   redis_data:
   task_temp_downloads_volume:
   # celery_beat_schedule_data: # 위에서 celery_beat_schedule_data 사용 시 여기에 정의
-  '''
+  
+'''
 
 
   
